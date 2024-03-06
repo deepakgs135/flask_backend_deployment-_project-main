@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>email_result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #333333;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: -29px;
+            margin-right:-28px;
+            margin-left:-28px;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .navbar li a {
+            background-color: #333333;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar li a:hover {
+            text-decoration: underline;
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        li.valid {
+            background-color: #c7e7b7;
+        }
+
+        li.invalid {
+            background-color: #f9c0c0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color:#E0E9F4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li class="navbar"><a href="/">Regex app</a></li>
+            <li class="navbar"><a href="/email">Email validation</a></li>
+        </ul class="navbar">
+    </nav>
+    <div class="container">
+    <form action="/email_result" method="post">
+        <label>Enter your email:</label>
+        <input type="text" name="mail" value="{{ text }}" required>
+        <br>
+        <input type="submit" value="Check">
+    </form>
+    <ul>
+        {% if valid_mail==True %}
+        <li class="valid">Valid email</li>
+        {% elif valid_mail==False %}
+        <li class="invalid">Not a valid email</li>
+        {% endif %}
+    </ul>
+</div>
+</body>
+</html>
